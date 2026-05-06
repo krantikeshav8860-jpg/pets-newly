@@ -1,0 +1,1014 @@
+<!-- PetCarePlus — Final Single-file HTML (Home updated: Products + Responsive fixes) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PetCarePlus — Smart & Stylish Pet Care</title>
+  <meta name="description" content="PetCarePlus: Expert advice, lifestyle tips, and health guides for your furry friends." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7faf9;--card:#fff;--muted:#6b7280;--accent:#10b981;--accent-700:#059669;--dark:#0f172a;--glass:rgba(255,255,255,0.6);--shadow:0 12px 30px rgba(12,18,29,0.06)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--dark);background:linear-gradient(180deg,#f7fbf9 0%, #ffffff 100%)}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{min-height:100vh;display:flex;flex-direction:column}
+    header{background:linear-gradient(90deg,var(--accent),var(--accent-700));color:white;padding:14px 0;box-shadow:var(--shadow)}
+    .nav{width:min(1100px,94%);margin:0 auto;display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .brand{font-weight:700;font-size:1.25rem;display:flex;gap:8px;align-items:center}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{color:white;padding:8px 12px;border-radius:8px;font-weight:600;opacity:0.95}
+    .nav-links a:hover{opacity:1;background:rgba(255,255,255,0.06)}
+    main{width:min(1100px,94%);margin:32px auto;flex:1}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:26px;align-items:center;background:linear-gradient(180deg, rgba(16,185,129,0.06), rgba(255,255,255,0.7));padding:34px;border-radius:16px;box-shadow:var(--shadow)}
+    .hero h1{font-size:2.1rem;margin:0 0 8px;color:#064e3b}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:white;padding:12px 16px;border-radius:10px;font-weight:700;border:0;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--dark);border:2px solid rgba(12,18,29,0.06)}
+    .hero-img{width:100%;height:100%;border-radius:12px;object-fit:cover;box-shadow:0 18px 40px rgba(5,150,105,0.08)}
+
+    /* features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    .feature{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
+    .feature-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-700));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .feature h3{margin:0 0 6px}
+    .feature p{margin:0;color:var(--muted)}
+
+    /* products */
+    .products-wrap{margin-top:36px}
+    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product{background:var(--card);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+    .product img{width:100%;height:160px;object-fit:cover}
+    .product-body{padding:12px;flex:1;display:flex;flex-direction:column}
+    .product-title{font-weight:700;margin:0 0 6px;font-size:0.98rem}
+    .product-price{color:#065f46;font-weight:700;margin-top:auto}
+    .product-actions{display:flex;gap:8px;margin-top:10px}
+    .btn-sm{padding:8px 10px;border-radius:8px;font-weight:700;border:0;cursor:pointer}
+    .buy{background:#ff9900;color:#111}
+    .wish{background:#eef2f7;color:var(--dark)}
+
+    /* blog */
+    .section-title{text-align:center;font-size:1.5rem;color:#064e3b;margin:48px 0 18px}
+    .blogs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .post{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+    .post img{width:100%;height:170px;object-fit:cover}
+    .post-body{padding:14px;flex:1}
+    .post-body h4{margin:0 0 6px}
+    .post-body p{margin:0;color:var(--muted)}
+    .post-footer{padding:12px 14px;border-top:1px solid #f1f5f9;background:#fafafa;display:flex;justify-content:space-between;align-items:center}
+
+    /* pages */
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .tips .tip{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+    .num{background:var(--accent);color:white;padding:10px 12px;border-radius:10px;font-weight:700;min-width:44px;text-align:center}
+    form{display:grid;gap:12px}
+    label{font-size:13px;color:var(--muted)}
+    input,textarea{padding:10px;border-radius:10px;border:1px solid #eef2f7;font-size:15px;width:100%;outline:none}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{background:#0b1220;color:#cbd5e1;padding:28px 0;margin-top:36px}
+    .footer-inner{width:min(1100px,94%);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+    .small{font-size:13px;color:#94a3b8}
+
+    /* responsive fixes */
+    @media (max-width:1100px){.products-grid{grid-template-columns:repeat(3,1fr)}.blogs{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr 360px}}
+    @media (max-width:760px){.nav{padding:0 8px}.hero{grid-template-columns:1fr;gap:14px}.hero-right{order:2}.products-grid{grid-template-columns:repeat(2,1fr)}.blogs{grid-template-columns:1fr}.features{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}footer .footer-inner{grid-template-columns:1fr}.hero h1{font-size:1.6rem}}
+    @media (max-width:420px){.products-grid{grid-template-columns:1fr}.product img{height:200px}}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="nav" role="navigation" aria-label="Main">
+        <div class="brand">🐾 <span>PetCarePlus</span></div>
+        <div class="nav-links" id="top-links">
+          <a href="#/">Home</a>
+          <a href="#/tips">Tips</a>
+          <a href="#/blogs">Blogs</a>
+          <a href="#/contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="app" role="main">
+      <!-- pages rendered here -->
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <h3>PetCarePlus</h3>
+          <p class="small">Trusted, practical advice for everyday pet care — nutrition, grooming, training and travel.</p>
+          <p style="margin-top:10px;"><span style="background:#ecfdf5;color:#065f46;padding:6px 10px;border-radius:999px;font-weight:700">Vet-reviewed guides</span></p>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <p class="small">
+            <a href="#/">Home</a><br>
+            <a href="#/tips">Tips</a><br>
+            <a href="#/blogs">Blogs</a><br>
+            <a href="#/contact">Contact</a>
+          </p>
+        </div>
+
+        <div>
+          <h4>Legal</h4>
+          <p class="small">
+            <a href="#/privacy">Privacy Policy</a><br>
+            <a href="#/terms">Terms of Use</a><br>
+            <a href="#/disclaimer">Disclaimer</a>
+          </p>
+        </div>
+      </div>
+      <div style="width:min(1100px,94%);margin:12px auto 0;color:#7f8a9a;font-size:13px;text-align:center">© <span id="year"></span> PetCarePlus — Made with ❤️ for pets</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const app = document.getElementById('app');
+
+    const products = [
+      {id:1,title:'Comfort Travel Carrier (Small)',price:'₹2,299',img:'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=60',amazon:'https://www.amazon.in/s?k=pet+carrier'},
+      {id:2,title:'Slow Feeder Bowl',price:'$45',img:'https://images.unsplash.com/photo-1598136497045-1f8a7a8a8f4b?auto=format&fit=crop&w=800&q=60',amazon:'https://www.amazon.in/s?k=slow+feeder+bowl+for+dogs'},
+      {id:3,title:'Deshedding Brush',price:'$99',img:'https://images.unsplash.com/photo-1559599189-7a4c9a2f7f7a?auto=format&fit=crop&w=800&q=60',amazon:'https://www.amazon.in/s?k=deshedding+tool'},
+      {id:4,title:'Pet First Aid Kit',price:'$199',img:'https://images.unsplash.com/photo-1583337130417-7b2f1b0d7a4c?auto=format&fit=crop&w=800&q=60',amazon:'https://www.amazon.in/s?k=pet+first+aid+kit'}
+    ];
+
+    const posts = [
+      {id:1,title:'How to choose the right food',date:'Jan 10, 2025',img:'https://images.unsplash.com/photo-1555685812-4b943f1cb0eb?auto=format&fit=crop&w=1200&q=80',excerpt:'Decode labels and pick the right diet for your pet’s life stage.'},
+      {id:2,title:'DIY grooming at home',date:'Mar 18, 2025',img:'https://plus.unsplash.com/premium_photo-1663012822996-ba7e04f3627a?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',excerpt:'Grooming basics: brushing, bathing and nail care done right.'},
+      {id:3,title:'Traveling with pets',date:'Jun 05, 2025',img:'https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1200&q=80',excerpt:'Checklist and tips for safe, calm travel with your pet.'}
+    ];
+
+    const routes = {
+      '/': renderHome,
+      '/tips': renderTips,
+      '/blogs': renderBlogs,
+      '/blogs/1': () => renderBlogDetail(1),
+      '/blogs/2': () => renderBlogDetail(2),
+      '/blogs/3': () => renderBlogDetail(3),
+      '/contact': renderContact,
+      '/privacy': renderPrivacy,
+      '/terms': renderTerms,
+      '/disclaimer': renderDisclaimer
+    };
+
+    function highlightNav(path){
+      const links = document.querySelectorAll('#top-links a');
+      links.forEach(a => {
+        const href = a.getAttribute('href') || '#/';
+        a.style.opacity = (href === '#'+path) ? '1' : '0.92';
+        a.style.background = (href === '#'+path) ? 'rgba(255,255,255,0.06)' : 'transparent';
+      });
+    }
+
+    function router(){
+      const path = location.hash.replace('#','') || '/';
+      const fn = routes[path] || (() => {
+        if(path.startsWith('/blogs/')){
+          const id = Number(path.split('/').pop()); if(id) return renderBlogDetail(id);
+        }
+        renderNotFound();
+      });
+      fn(); highlightNav(path); window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    /* PAGES */
+    function renderHome(){
+      app.innerHTML = `
+        <section class="hero" aria-label="Welcome">
+          <div class="hero-left">
+            <h1>Your pet’s happiness starts here</h1>
+            <p class="muted">Practical, vet-reviewed tips for nutrition, grooming, play and travel — written for busy pet parents.</p>
+            <div class="cta-row">
+              <a class="btn" href="#/tips">Top Tips</a>
+              <a class="btn ghost" href="#/blogs">Read our blog</a>
+            </div>
+            <div style="margin-top:18px;color:var(--muted);font-size:0.95rem;">
+              <strong>Quick facts:</strong>
+              <ul style="margin:8px 0 0 18px;color:var(--muted)">
+                <li>20–30 min daily play helps behavior & health</li>
+                <li>Measure portions — prevent obesity</li>
+                <li>Routine grooming prevents skin & ear problems</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hero-right">
+            <picture>
+              <source media="(max-width:760px)" srcset="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=600&q=80">
+              <img class="hero-img" src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=80" alt="Happy dog and cat">
+            </picture>
+          </div>
+        </section>
+
+        <h2 class="section-title">Pet Care Highlights</h2>
+        <section class="features" aria-label="Highlights">
+          <div class="feature"><div class="feature-icon">🥗</div><div><h3>Healthy Feeding</h3><p>How to read labels, manage portions, and choose life-stage nutrition for puppies, adults and seniors.</p></div></div>
+          <div class="feature"><div class="feature-icon">✂️</div><div><h3>Grooming & Hygiene</h3><p>Brushing, bathing frequency and nail care to keep skin and coat healthy.</p></div></div>
+          <div class="feature"><div class="feature-icon">⚽</div><div><h3>Exercise & Play</h3><p>Play ideas, training tips and mental stimulation for happier pets.</p></div></div>
+        </section>
+
+       
+
+        <h2 class="section-title">From the Blog</h2>
+        <section class="blogs" aria-label="Latest posts">
+          ${posts.map(p => `
+            <article class="post">
+              <img src="${p.img}" alt="${p.title}">
+              <div class="post-body"><h4>${p.title}</h4><p class="muted">${p.date} • ${p.excerpt}</p></div>
+              <div class="post-footer"><div class="small muted">${p.date}</div><a href="#/blogs/${p.id}">Read →</a></div>
+            </article>
+          `).join('')}
+        </section>
+      `;
+    }
+
+    function renderTips(){
+      app.innerHTML = `
+        <div class="card tips">
+          <h2>Top 3 Practical Tips</h2>
+          <div style="margin-top:14px">
+            <div class="tip"><div class="num">1</div><div><h3>Create a consistent feeding routine</h3><p class="muted">Feed at set times, measure portions, and avoid table scraps. Track portions for 2–3 weeks to find the right baseline for weight control.</p></div></div>
+            <div class="tip"><div class="num">2</div><div><h3>Daily exercise & mental stimulation</h3><p class="muted">Short walks, puzzle feeders, and 10–15 minute training sessions reduce boredom and behaviour issues.</p></div></div>
+            <div class="tip"><div class="num">3</div><div><h3>Grooming & preventive care</h3><p class="muted">Brush regularly, trim nails, clean ears and follow parasite prevention and vaccination schedules recommended by your vet.</p></div></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderBlogs(){
+      app.innerHTML = `
+        <div>
+          <h2 class="section-title">All Blog Posts</h2>
+          <div class="blogs">
+            ${posts.map(p => `
+              <article class="post">
+                <img src="${p.img}" alt="${p.title}">
+                <div class="post-body"><h4>${p.title}</h4><p class="muted">${p.date} • ${p.excerpt}</p></div>
+                <div class="post-footer"><div class="small muted">${p.date}</div><a href="#/blogs/${p.id}">Read →</a></div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderBlogDetail(id){
+      const p = posts.find(x=>x.id===id);
+      if(!p){ renderNotFound(); return; }
+      let body='';
+      if(id===1){ body = `<article class="card">
+  <h1>How to Choose the Right Food for Your Pet</h1>
+
+  <p>
+    Picking the right food for your dog or cat can feel confusing &mdash; so many brands,
+    flavours, labels and &ldquo;premium&rdquo; tags everywhere. The good news: if you follow a few simple rules,
+    you can quickly narrow down the best options for your pet.
+  </p>
+
+  <p>
+    This guide walks you through step by step: life stage, ingredients, portion size, special health
+    needs, and how to safely switch foods.
+  </p>
+
+  <p><strong>Important:</strong> This article is for general guidance only. Always talk to your veterinarian before making big diet changes, especially if your pet has any medical issues.</p>
+
+  <h2>1. Start with your pet&rsquo;s basics</h2>
+
+  <p>Before even looking at a bag or can, note down a few key details about your pet:</p>
+
+  <ul>
+    <li><strong>Species:</strong> Dog or cat (never feed dog food to cats long-term; cats need extra nutrients like taurine).</li>
+    <li><strong>Age / life stage:</strong>
+      <ul>
+        <li>Puppy / kitten</li>
+        <li>Adult</li>
+        <li>Senior</li>
+      </ul>
+    </li>
+    <li><strong>Size &amp; breed:</strong> Small, medium, large or giant breed (larger breeds often have special joint and growth needs).</li>
+    <li><strong>Activity level:</strong> Couch potato, average, or super active.</li>
+    <li><strong>Current body condition:</strong> Underweight, ideal, or overweight.</li>
+  </ul>
+
+  <p>
+    All of this helps you choose the right life-stage and type of food and the right portion size.
+  </p>
+
+  <h2>2. Choose the correct life-stage formula</h2>
+
+  <p>Pet foods are usually labelled with one of these:</p>
+
+  <ul>
+    <li><strong>Puppy / Kitten</strong> &mdash; higher calories and nutrients to support fast growth.</li>
+    <li><strong>Adult maintenance</strong> &mdash; balanced for pets that are fully grown.</li>
+    <li><strong>Senior / 7+ years</strong> &mdash; lower calories, extra support for joints, kidneys, digestion (depending on brand).</li>
+    <li><strong>All life stages</strong> &mdash; designed to meet growth and adult needs, but might be too calorie-dense for some adult or senior pets.</li>
+  </ul>
+
+  <p><strong>Simple rule:</strong></p>
+  <p>
+    If your pet is still growing, pick <em>puppy/kitten</em> or <em>all life stages</em>.<br>
+    If fully grown and healthy, go for <em>adult</em>.<br>
+    If older or with age-related issues, ask your vet about <em>senior</em> or special diets.
+  </p>
+
+  <h2>3. Learn to read the ingredient list</h2>
+
+  <p>The ingredient list can look scary, but you don&rsquo;t need to be a scientist to get the basics right.</p>
+
+  <h3>Look for:</h3>
+  <ul>
+    <li>
+      <strong>Named animal proteins near the top</strong><br>
+      e.g. &ldquo;chicken&rdquo;, &ldquo;salmon&rdquo;, &ldquo;turkey&rdquo;, &ldquo;lamb&rdquo;.
+      Better than vague terms like &ldquo;meat&rdquo; or &ldquo;animal by-product&rdquo; alone.
+    </li>
+    <li>
+      <strong>Clear fat sources</strong><br>
+      e.g. &ldquo;chicken fat&rdquo;, &ldquo;salmon oil&rdquo; &mdash; important for energy, skin and coat health.
+    </li>
+    <li>
+      <strong>Digestible carbs &amp; fibre</strong><br>
+      e.g. rice, oats, sweet potato, peas, beet pulp (for fibre).
+    </li>
+  </ul>
+
+  <h3>Be cautious of:</h3>
+  <ul>
+    <li>
+      <strong>Very long lists of artificial colours and unnecessary flavourings</strong> &mdash;
+      not always harmful, but not needed for health.
+    </li>
+    <li>
+      <strong>Sugar / sweeteners</strong> &mdash; avoid foods that add sugar, corn syrup or similar just to improve taste.
+    </li>
+    <li>
+      <strong>Vague by-products</strong> &mdash; some by-products are okay and nutritious, but if you see only
+      &ldquo;meat by-products&rdquo; without any clear meat listed, it&rsquo;s a small red flag.
+    </li>
+  </ul>
+
+  <p>
+    You don&rsquo;t have to buy the most expensive brand, but you do want clear, named ingredients and a list
+    that doesn&rsquo;t look like a chemistry experiment.
+  </p>
+
+  <h2>4. Check the guaranteed analysis &amp; calories</h2>
+
+  <p>
+    Every pet food has a small table called <strong>&ldquo;Guaranteed Analysis&rdquo;</strong> showing protein, fat, fibre, moisture, etc.
+  </p>
+
+  <p>For most healthy adult dogs and cats:</p>
+  <ul>
+    <li><strong>Protein:</strong> should be reasonable for their species and life stage (cats generally need more).</li>
+    <li><strong>Fat:</strong> gives energy and flavour; too much can cause weight gain if portions are not controlled.</li>
+    <li><strong>Fibre:</strong> helps digestion &mdash; too much can cause loose stool or too many poop trips.</li>
+  </ul>
+
+  <p>Also look for:</p>
+  <ul>
+    <li><strong>Calories per cup / per 100g</strong> &mdash; very important for portion control.</li>
+    <li><strong>Feeding guide</strong> &mdash; usually on the back/side of the pack.</li>
+  </ul>
+
+  <p>
+    You&rsquo;ll use calories + the feeding guide as a starting point. Later, you adjust slightly up or down based on your pet&rsquo;s weight and energy.
+  </p>
+
+  <h2>5. Consider special health needs</h2>
+
+  <p>
+    Some pets shouldn&rsquo;t eat &ldquo;normal&rdquo; food. They might need a prescription or special diet recommended by a vet.
+  </p>
+
+  <ul>
+    <li><strong>Allergies / sensitivities</strong> &mdash; your vet may suggest a limited-ingredient diet or a food with novel protein (like duck, venison, etc.).</li>
+    <li><strong>Kidney or liver disease</strong> &mdash; often requires a specific veterinary diet with controlled protein, phosphorus, sodium, etc.</li>
+    <li><strong>Joint issues / arthritis</strong> &mdash; some foods include added joint-support ingredients (glucosamine, chondroitin, omega-3s).</li>
+    <li><strong>Weight management</strong> &mdash; &ldquo;light&rdquo;, &ldquo;weight management&rdquo; or prescription weight-loss foods may be needed, plus exercise.</li>
+  </ul>
+
+  <p><strong>Never</strong> switch a pet with a known medical problem to a new food without checking with your vet first.</p>
+
+  <h2>6. Dry, wet, or a mix?</h2>
+
+  <p>All three can be fine if the food quality is good and the diet is balanced:</p>
+
+  <ul>
+    <li><strong>Dry food (kibble):</strong> Convenient, usually cheaper, easy to store. Helps some pets with dental health but not a replacement for brushing.</li>
+    <li><strong>Wet food (cans/pouches):</strong> Higher moisture, often more palatable for picky eaters. Good for pets that need more water (like some cats).</li>
+    <li><strong>Mixed feeding:</strong> Common approach: a base of dry food with some wet food on top for flavour and variety.</li>
+  </ul>
+
+  <p>
+    For cats especially, adding wet food can help increase water intake, which supports urinary health. Ask your vet what ratio makes sense for your pet.
+  </p>
+
+  <h2>7. How to safely switch foods</h2>
+
+  <p>Changing food too quickly can cause vomiting, diarrhoea or refusal to eat. Instead, switch gradually:</p>
+
+  <ol>
+    <li><strong>Days 1–2:</strong> 75% old food, 25% new food.</li>
+    <li><strong>Days 3–4:</strong> 50% old food, 50% new food.</li>
+    <li><strong>Days 5–6:</strong> 25% old food, 75% new food.</li>
+    <li><strong>Day 7 onwards:</strong> 100% new food (if all is going well).</li>
+  </ol>
+
+  <p>
+    If your pet develops loose stool, vomiting or becomes very gassy, slow the transition down or call your vet
+    for advice, especially if your pet is very young, very small, or has other health issues.
+  </p>
+
+  <h2>8. Monitor your pet after the switch</h2>
+
+  <p>Once your pet has fully switched to the new food, keep an eye on:</p>
+
+  <ul>
+    <li><strong>Energy:</strong> Still playful and active? Or suddenly very tired?</li>
+    <li><strong>Coat &amp; skin:</strong> Shiny coat, minimal dandruff? Or new itchiness and redness?</li>
+    <li><strong>Stool:</strong> Firm but not hard, easy to pick up.</li>
+    <li><strong>Weight:</strong> Check every few weeks if possible.</li>
+  </ul>
+
+  <p>
+    Small changes are normal at first, but anything extreme or long-lasting (diarrhoea, vomiting, refusing food,
+    visible discomfort) is a reason to call the vet.
+  </p>
+
+  <h2>9. Don&rsquo;t forget water &amp; treats</h2>
+
+  <p>
+    Even the best food doesn&rsquo;t work if your pet is dehydrated or overeats on treats.
+  </p>
+
+  <ul>
+    <li>Always keep <strong>fresh water</strong> available and clean the bowl daily.</li>
+    <li>Limit treats to about <strong>10% or less</strong> of the daily calorie intake.</li>
+    <li>Be careful with table scraps &mdash; some human foods are toxic to pets (chocolate, grapes, raisins, onions, xylitol, etc.).</li>
+  </ul>
+
+  <h2>Key takeaway</h2>
+
+  <p>
+    You don&rsquo;t need to perfectly understand every single ingredient to make a good choice. Focus on:
+  </p>
+
+  <ul>
+    <li>Right life stage (puppy/kitten, adult, senior)</li>
+    <li>Clear named ingredients and good protein sources</li>
+    <li>Reasonable calories and portion control</li>
+    <li>Any special vet-recommended needs</li>
+    <li>Slow, careful transition and monitoring</li>
+  </ul>
+
+  <p>
+    When in doubt, take a photo of the food label and ask your veterinarian. They know your pet&rsquo;s history and
+    can help you pick a food that keeps them healthy, comfortable and full of energy.
+  </p>
+</article>
+`; }
+      else if(id===2){ body = `<article class="card">
+  <h1>DIY Grooming at Home — A Complete Guide for Pet Owners</h1>
+
+  <p>
+    Grooming your pet at home is not just about keeping them looking cute — it’s essential for
+    their health, comfort, and hygiene. With the right tools, techniques, and a little patience,
+    you can give your dog or cat a safe, stress-free grooming session right from home.
+  </p>
+
+  <p>
+    This step-by-step guide helps you brush, bathe, trim nails, clean ears, and keep your pet
+    well-groomed without unnecessary trips to the groomer.
+  </p>
+
+  <p><strong>Tip:</strong> Go slow, keep treats handy, and make grooming a positive experience.</p>
+
+  <h2>1. Essential grooming tools you should have</h2>
+
+  <p>Before you begin, gather these basic grooming items:</p>
+
+  <ul>
+    <li><strong>Slicker brush</strong> — great for removing loose hair and reducing shedding.</li>
+    <li><strong>Comb with wide &amp; narrow teeth</strong> — perfect for detangling.</li>
+    <li><strong>Pet-safe shampoo</strong> — never use human shampoo.</li>
+    <li><strong>Nail clippers or grinder</strong> — choose the right size for your pet.</li>
+    <li><strong>Microfiber towel</strong> — absorbs water quickly.</li>
+    <li><strong>Ear cleaning solution &amp; cotton pads</strong> — keeps ears odor-free and clean.</li>
+    <li><strong>Pet-safe wipes</strong> — quick cleaning between baths.</li>
+    <li><strong>Deshedding tool</strong> (optional but very helpful for heavy shedders).</li>
+  </ul>
+
+  <p>
+    Using good tools makes the grooming process easier, faster and more comfortable for your pet.
+  </p>
+
+  <h2>2. Brushing: the foundation of grooming</h2>
+
+  <p>
+    Regular brushing keeps the coat clean, removes loose hair, prevents matting, and spreads natural
+    oils that keep the skin healthy.
+  </p>
+
+  <h3>How to brush properly:</h3>
+  <ul>
+    <li>Start gently and brush in the direction of hair growth.</li>
+    <li>Use a slicker brush for general brushing and a comb for deeper detangling.</li>
+    <li>Be gentle around the belly, tail, ears, and legs.</li>
+    <li>Brush daily for long-haired breeds and 2–3 times a week for short-haired pets.</li>
+  </ul>
+
+  <p><strong>Tip:</strong> If you find mats, don’t pull — use a detangling spray or gently loosen with a comb.</p>
+
+  <h2>3. Bathing: how often should you bathe your pet?</h2>
+
+  <p>Most pets do not need frequent baths. In fact, too much bathing removes natural oils.</p>
+
+  <ul>
+    <li><strong>Dogs:</strong> Once every 3–4 weeks (unless very dirty).</li>
+    <li><strong>Cats:</strong> Only when necessary (cats groom themselves well).</li>
+  </ul>
+
+  <h3>Steps for a safe bath:</h3>
+  <ol>
+    <li>Use lukewarm water, not hot.</li>
+    <li>Apply pet shampoo starting from the back, avoiding eyes and ears.</li>
+    <li>Massage gently to remove dirt and loose hair.</li>
+    <li>Rinse thoroughly — leftover shampoo can irritate skin.</li>
+    <li>Dry with a microfiber towel; you can use a pet blow-dryer on low heat.</li>
+  </ol>
+
+  <p><strong>Never use:</strong> human shampoo, dish soap, or hot water — these irritate skin.</p>
+
+  <h2>4. Nail trimming: don’t skip this</h2>
+
+  <p>
+    Long nails cause pain, foot deformities, and joint problems. Trimming regularly is very important.
+  </p>
+
+  <h3>Tips for trimming nails safely:</h3>
+  <ul>
+    <li>Use pet-specific nail clippers or a grinder.</li>
+    <li>Trim tiny amounts at a time, especially for dark nails.</li>
+    <li>Avoid cutting the “quick” — the sensitive part inside the nail.</li>
+    <li>If unsure, trim just the very tip.</li>
+    <li>Keep styptic powder or cornstarch nearby in case of bleeding.</li>
+  </ul>
+
+  <p><strong>Good habit:</strong> Trim nails every 2–4 weeks depending on growth.</p>
+
+  <h2>5. Ear cleaning: stop infections early</h2>
+
+  <p>
+    Dirty ears cause foul smells, itching and infections — especially in floppy-eared breeds like
+    Beagles, Cocker Spaniels, and Labradors.
+  </p>
+
+  <h3>To clean ears safely:</h3>
+  <ul>
+    <li>Use only vet-approved ear cleaners.</li>
+    <li>Apply a few drops inside the ear and massage the base gently.</li>
+    <li>Let your pet shake their head.</li>
+    <li>Wipe the outer ear with cotton; never insert anything deep inside.</li>
+  </ul>
+
+  <p><strong>Avoid:</strong> cotton swabs (Q-tips) — they push debris deeper.</p>
+
+  <h2>6. Coat trimming (optional)</h2>
+
+  <p>
+    Some breeds require trimming around the paws, tail, and face. If you choose to do it at home:
+  </p>
+
+  <ul>
+    <li>Use round-tip scissors to avoid accidental cuts.</li>
+    <li>Trim only the excess hair around paws for neatness.</li>
+    <li>Keep scissors parallel to the body — never point toward the skin.</li>
+    <li>If your pet has a double-coat (Husky, German Shepherd, Golden Retriever), do NOT shave it.</li>
+  </ul>
+
+  <p><strong>When in doubt:</strong> leave major trimming to a professional groomer.</p>
+
+  <h2>7. Cleaning the face &amp; eyes</h2>
+
+  <p>
+    Some dogs get tear stains or face buildup. Use pet-safe wipes or a damp cotton pad to clean:
+  </p>
+
+  <ul>
+    <li>Under the eyes</li>
+    <li>Around the mouth</li>
+    <li>Inside folds (for flat-faced breeds like Pugs/Bulldogs)</li>
+  </ul>
+
+  <p>
+    Never use harsh cleansers or anything with alcohol near your pet’s face.
+  </p>
+
+  <h2>8. Make grooming enjoyable</h2>
+
+  <p>
+    The goal is to make grooming stress-free. This only happens when your pet associates grooming with something positive.
+  </p>
+
+  <ul>
+    <li>Reward with treats during and after grooming.</li>
+    <li>Start with short sessions (5–10 minutes).</li>
+    <li>Use calm, gentle movements.</li>
+    <li>Take breaks if your pet gets scared.</li>
+  </ul>
+
+  <p><strong>Bonus tip:</strong> Play relaxing music designed for pets — it works surprisingly well!</p>
+
+  <h2>9. When to see a professional groomer</h2>
+
+  <p>
+    Even if you do basic grooming at home, sometimes you need a professional groomer.
+  </p>
+
+  <ul>
+    <li>Severely matted fur</li>
+    <li>Bad odour that doesn’t go away after a bath</li>
+    <li>Skin rashes or bald spots</li>
+    <li>Ear discharge with smell</li>
+    <li>Overgrown nails you cannot trim safely</li>
+  </ul>
+
+  <h2>Final takeaway</h2>
+
+  <p>
+    DIY grooming is rewarding, cost-effective, and builds trust with your pet. Brushing, bathing,
+    trimming nails, and basic ear and face cleaning are all simple once you know how.
+  </p>
+
+  <p>
+    Be patient, stay gentle, and make it fun — your pet will love the attention, and you’ll enjoy a cleaner,
+    healthier companion.
+  </p>
+</article>
+`; }
+      else { body = `<article class="card">
+  <h1>Traveling With Pets — The Complete Guide for Safe & Stress-Free Trips</h1>
+
+  <p>
+    Traveling with your pet — whether by car, train, or airplane — can be one of the most joyful
+    experiences when done right. But without proper preparation, it can also be stressful for both
+    you and your furry companion. This guide covers everything you need to ensure a smooth, safe and
+    comfortable journey.
+  </p>
+
+  <p>
+    From pre-trip prep to packing essentials, road trip safety, flight rules, and tips for anxious
+    pets — you'll find everything you need here.
+  </p>
+
+  <h2>1. Before you travel: things you must check</h2>
+
+  <ul>
+    <li><strong>Vet check-up:</strong> Ensure your pet is fit to travel, especially if they have respiratory issues or are senior.</li>
+    <li><strong>Vaccinations:</strong> Make sure all vaccinations are up to date.</li>
+    <li><strong>Medication:</strong> Ask if your pet needs anti-anxiety medication or motion-sickness pills.</li>
+    <li><strong>Health certificate:</strong> Required for flights, hotels, and some states/countries.</li>
+    <li><strong>Microchip & ID tag:</strong> Essential for safety in case your pet gets lost during travel.</li>
+  </ul>
+
+  <p>
+    If you're traveling internationally, check pet import rules weeks in advance — some countries require quarantine or specific documents.
+  </p>
+
+  <h2>2. Packing checklist for your pet</h2>
+
+  <p>Pack these essentials to avoid hassles on the road:</p>
+
+  <ul>
+    <li>Pet food + portable bowls</li>
+    <li>Leash + harness</li>
+    <li>Favorite toys to reduce anxiety</li>
+    <li>Blanket or familiar bedding</li>
+    <li>Poop bags / litter supplies</li>
+    <li>Medications + first-aid kit</li>
+    <li>Grooming wipes</li>
+    <li>Pet carrier or crate</li>
+    <li>Travel water bottle for pets</li>
+  </ul>
+
+  <p><strong>Tip:</strong> Keep a small emergency bag accessible — not buried under luggage.</p>
+
+  <h2>3. Car travel: make it safe & comfortable</h2>
+
+  <p>Car travel is the easiest and most flexible mode of travel with pets.</p>
+
+  <h3>Safety rules:</h3>
+  <ul>
+    <li>Use a secured carrier, crate, or pet seat belt — never let pets move around freely.</li>
+    <li>Keep your pet in the back seat for safety.</li>
+    <li>Never leave your pet alone in the car, even for a few minutes — temperatures rise quickly.</li>
+    <li>Stop every 2–3 hours for water, potty breaks, and stretching.</li>
+    <li>Crack open windows for ventilation but avoid letting heads stick out — dangerous for eyes and ears.</li>
+  </ul>
+
+  <h3>Make the ride pleasant:</h3>
+  <ul>
+    <li>Play calming music designed for dogs/cats.</li>
+    <li>Bring a familiar blanket or toy to reduce stress.</li>
+    <li>Feed light meals &mdash; avoid full meals right before the trip.</li>
+  </ul>
+
+  <h2>4. Train and bus travel</h2>
+
+  <p>
+    Not all trains or buses allow pets, so check policies beforehand. Some require carriers, weight
+    limits, or additional fees.
+  </p>
+
+  <ul>
+    <li>Carry pets in well-ventilated carriers.</li>
+    <li>Keep noise and movement minimal to avoid disturbing other passengers.</li>
+    <li>Have paperwork ready if required (ID, vaccination proof).</li>
+  </ul>
+
+  <h2>5. Air travel with pets</h2>
+
+  <p>
+    Air travel is the most complicated and requires planning. Airlines usually offer two options:
+  </p>
+
+  <ul>
+    <li><strong>In-cabin:</strong> For small pets in approved carriers under seat.</li>
+    <li><strong>Cargo travel:</strong> For larger pets — needs special precautions.</li>
+  </ul>
+
+  <h3>Tips for in-cabin travel:</h3>
+  <ul>
+    <li>Carrier must meet airline size guidelines.</li>
+    <li>Pets must remain inside carrier for the entire flight.</li>
+    <li>Use absorbent pads in the carrier.</li>
+    <li>Arrive early at the airport — pet check-in lines take longer.</li>
+  </ul>
+
+  <h3>Tips for pets traveling in cargo:</h3>
+  <ul>
+    <li>Choose airlines with strong pet-safety records.</li>
+    <li>Use a sturdy, IATA-approved crate.</li>
+    <li>Attach water bottles and clear identification tags.</li>
+    <li>Avoid peak heat or severe winters — temperature can affect pets in cargo.</li>
+    <li>Avoid cargo travel for snub-nosed breeds like Pugs, Bulldogs, Persian cats — they are prone to breathing issues.</li>
+  </ul>
+
+  <p>
+    Always talk to your vet if your pet is old, anxious, or has medical issues before booking a flight.
+  </p>
+
+  <h2>6. Making hotels & stays pet-friendly</h2>
+
+  <p>
+    Many hotels and homestays are now pet-friendly, but always confirm rules before booking.
+  </p>
+
+  <ul>
+    <li>Ask about pet fees, size limits, and allowed areas.</li>
+    <li>Bring your own bed/sheet to avoid mess.</li>
+    <li>Keep your pet leashed in hallways or common spaces.</li>
+    <li>Never leave your pet alone for long periods in a new place.</li>
+  </ul>
+
+  <p>
+    If using Airbnb or short stays, check reviews mentioning pets to avoid unpleasant surprises.
+  </p>
+
+  <h2>7. Tips for anxious or first-time traveler pets</h2>
+
+  <p>Some pets get nervous during travel, especially first timers.</p>
+
+  <ul>
+    <li>Take short practice drives before a long trip.</li>
+    <li>Use calming sprays or pheromone diffusers (vet-approved).</li>
+    <li>Give treats during the trip to build positive memories.</li>
+    <li>Provide a safe spot like a blanket-covered crate.</li>
+    <li>For severe anxiety, talk to your vet about medication.</li>
+  </ul>
+
+  <p><strong>Never:</strong> give human sleeping pills or unprescribed medicine to pets.</p>
+
+  <h2>8. International travel checklist</h2>
+
+  <ul>
+    <li>Check country import rules (some require quarantine).</li>
+    <li>Microchip must meet ISO standards.</li>
+    <li>Rabies vaccination + certificate is mandatory.</li>
+    <li>Some destinations require a rabies titer test (blood test).</li>
+    <li>Keep all original documents organized in a dedicated folder.</li>
+  </ul>
+
+  <h2>Final takeaway</h2>
+
+  <p>
+    Traveling with pets becomes easy when you plan ahead. Whether it's a road trip or flight, always
+    prioritize safety, comfort, hydration, and familiar objects. With the right preparation, your pet
+    will enjoy the journey just as much as the destination.
+  </p>
+
+  <p>
+    Safe travels and happy adventures with your furry friend! 🐾✈️
+  </p>
+</article>
+`; }
+      app.innerHTML = `
+        <article class="card">
+          <img src="${p.img}" alt="${p.title}" style="width:100%;height:320px;object-fit:cover;border-radius:12px;margin-bottom:14px">
+          <h2>${p.title}</h2>
+          <div class="small muted" style="margin-bottom:12px">${p.date}</div>
+          ${body}
+          <p style="margin-top:14px;color:var(--muted)">Always consult a licensed veterinarian for health-specific questions.</p>
+          <p style="margin-top:14px"><a href="#/blogs">← Back to blogs</a></p>
+        </article>
+      `;
+    }
+
+    function renderContact(){
+      app.innerHTML = `
+        <div class="card">
+          <h2>Contact Us</h2>
+          <p class="muted">Questions, suggestions or requests? Leave a message and we'll reply as soon as possible.</p>
+          <form id="contactForm" style="margin-top:12px">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@mail.com" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+              <button class="btn" type="submit">Send message</button>
+              <div id="contactResult" class="muted small"></div>
+            </div>
+          </form>
+        </div>
+      `;
+      document.getElementById('contactForm').addEventListener('submit', function(e){ e.preventDefault(); const name=document.getElementById('name').value.trim(); document.getElementById('contactResult').textContent = `Thanks ${name||'friend'} — we received your message. (Demo site: no email sent)`; this.reset(); });
+    }
+
+    function renderPrivacy(){ app.innerHTML = `<article class="card">
+  <h1>Privacy Policy</h1>
+  <p class="muted">Last updated: 2025</p>
+
+  <p>
+    This Privacy Policy explains how we collect, use, and protect the information you provide when
+    you use our website. By accessing or using this site, you agree to the terms outlined below.
+  </p>
+
+  <h2>1. Information We Collect</h2>
+  <ul>
+    <li><strong>Personal Information:</strong> Name, email address, or message submitted via our contact form.</li>
+    <li><strong>Non-Personal Information:</strong> Browser type, device information, pages visited.</li>
+    <li><strong>Cookies:</strong> Basic cookies may be used for functionality and analytics.</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <ul>
+    <li>To respond to your messages or inquiries.</li>
+    <li>To improve website performance and user experience.</li>
+    <li>To maintain security and prevent spam or abuse.</li>
+  </ul>
+
+  <h2>3. Sharing Your Information</h2>
+  <p>
+    We do <strong>not</strong> sell, rent, or trade your personal data. Information may only be shared:
+  </p>
+  <ul>
+    <li>To comply with legal obligations.</li>
+    <li>To trusted service providers (hosting, analytics) that follow confidentiality standards.</li>
+  </ul>
+
+  <h2>4. Data Security</h2>
+  <p>
+    We use reasonable security measures to protect your information but cannot guarantee 100% protection
+    due to the nature of the internet.
+  </p>
+
+  <h2>5. Third-Party Links</h2>
+  <p>
+    Our website may include links to external sites (e.g., blogs, Amazon products). We are not responsible
+    for the privacy practices of these external websites.
+  </p>
+
+  <h2>6. Your Choices</h2>
+  <p>
+    You may request deletion of your personal information by contacting us via the contact form.
+  </p>
+
+  <h2>7. Updates to This Policy</h2>
+  <p>
+    This policy may be updated from time to time. Updates will be posted on this page.
+  </p>
+</article>
+`; }
+    function renderTerms(){ app.innerHTML = `<article class="card">
+  <h1>Terms of Use</h1>
+  <p class="muted">Last updated: 2025</p>
+
+  <p>
+    By accessing or using this website, you agree to the following terms and conditions. If you do
+    not agree, please discontinue use of the site.
+  </p>
+
+  <h2>1. General Information</h2>
+  <p>
+    All content on this website is provided for educational and informational purposes only. We do
+    not guarantee the accuracy, completeness, or reliability of any content.
+  </p>
+
+  <h2>2. User Responsibilities</h2>
+  <ul>
+    <li>You agree not to misuse, copy, or distribute content without permission.</li>
+    <li>You will not engage in harmful, illegal, or disruptive activities on this site.</li>
+    <li>You are responsible for verifying any information before relying on it.</li>
+  </ul>
+
+  <h2>3. External Links</h2>
+  <p>
+    The website may contain links to third-party sites. We are not responsible for the content or
+    policies of those websites.
+  </p>
+
+  <h2>4. No Veterinary or Professional Advice</h2>
+  <p>
+    Pet-care tips, articles, and blog posts provided here are general guidelines only. Always
+    consult a licensed veterinarian for specific medical concerns.
+  </p>
+
+  <h2>5. Limitation of Liability</h2>
+  <p>
+    We are not liable for any damages, losses, or injuries resulting from use of this website,
+    including reliance on the information provided.
+  </p>
+
+  <h2>6. Changes to Terms</h2>
+  <p>
+    These Terms may be updated at any time. Continued use of the website implies acceptance of the
+    updated terms.
+  </p>
+</article>
+`; }
+    function renderDisclaimer(){ app.innerHTML = `<article class="card">
+  <h1>Disclaimer</h1>
+
+  <p>
+    The information on this website is provided for general awareness and educational purposes only.
+    While we strive to offer accurate and helpful pet-care content, we make no guarantees about the
+    completeness, reliability, or suitability of the information.
+  </p>
+
+  <h2>1. Not Professional Advice</h2>
+  <p>
+    This website does not provide veterinary, medical, legal, or professional advice. Always consult
+    a licensed veterinarian for diagnosis or treatment of pet health issues.
+  </p>
+
+  <h2>2. No Liability</h2>
+  <p>
+    We are not responsible for any loss, harm, injury, or misuse resulting from the application of
+    information, suggestions, or recommendations found on this site.
+  </p>
+
+  <h2>3. External Links</h2>
+  <p>
+    Any external product links (including Amazon or pet stores) are for convenience only. We are not
+    responsible for the quality, pricing, or policies of these third-party sites.
+  </p>
+
+  <h2>4. Affiliate Disclosure (Optional)</h2>
+  <p>
+    Some links may be affiliate links. This means we may earn a small commission at no extra cost to
+    you. This does not influence our content or suggestions.
+  </p>
+
+  <p>
+    By using this site, you agree that you understand and accept this disclaimer.
+  </p>
+</article>
+`; }
+    function renderNotFound(){ app.innerHTML = `<div class="card center"><h2>Page not found</h2><p class="muted">Sorry — we couldn't find that page.</p><p><a href="#/">Back to home</a></p></div>`; }
+
+    function routeFromHash(){ return location.hash.replace('#','') || '/'; }
+
+    window.addEventListener('hashchange', () => { router(); });
+    window.addEventListener('load', () => { router(); });
+
+    // initial render
+    function router(){ const path = routeFromHash(); const fn = routes[path] || (() => { if(path.startsWith('/blogs/')){ const id = Number(path.split('/').pop()); if(id) return renderBlogDetail(id); } renderNotFound(); }); fn(); highlightNav(path); }
+  </script>
+</body>
+</html>
